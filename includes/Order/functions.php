@@ -641,6 +641,7 @@ function dokan_get_suborder_ids_by( $parent_order_id ) {
 
      $sub_orders = $wpdb->get_results( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts}
          WHERE post_type = 'shop_order'
+         AND post_status != 'trash'
          AND post_parent = %d", $parent_order_id
     ) );
 
